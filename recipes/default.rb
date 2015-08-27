@@ -80,7 +80,7 @@ when 'debian'
       owner 'root'
       group 'root'
       mode 0644
-      variables(:max_file_descriptors => node['rabbitmq']['max_file_descriptors'])
+      variables(:start_on => node['rabbitmq']['upstart']['start_on'], :max_file_descriptors => node['rabbitmq']['max_file_descriptors'])
     end
   end
 
