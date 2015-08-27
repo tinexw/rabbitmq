@@ -81,7 +81,7 @@ default['rabbitmq']['open_file_limit'] = nil
 default['rabbitmq']['job_control'] = 'initd'
 
 # upstart config
-default ['rabbitmq']['upstart']['start_on'] = 'started networking'
+default['rabbitmq']['upstart']['start_on'] = 'started networking'
 
 # ssl
 default['rabbitmq']['ssl'] = false
