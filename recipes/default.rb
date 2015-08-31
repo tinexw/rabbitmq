@@ -198,15 +198,8 @@ if node['rabbitmq']['cluster'] && (node['rabbitmq']['erlang_cookie'] != existing
     owner 'rabbitmq'
     group 'rabbitmq'
     mode 00400
-    notifies :start, "service[#{node['rabbitmq']['service_name']}]", :immediately
-    notifies :run, 'execute[reset-node]', :immediately
   end
 
-  # Need to reset for clustering #
-  execute 'reset-node' do
-    command 'rabbitmqctl stop_app && rabbitmqctl reset && rabbitmqctl start_app'
-    action :nothing
-  end
 end
 
 if node['rabbitmq']['manage_service']
